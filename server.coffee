@@ -7,6 +7,14 @@ sockets  = []
 log      = console.log 
 
 index = fs.readFileSync(path.join(__dirname, 'index.html'))
+api   = fs.readFileSync(path.join(__dirname, 'grooveshark-api.js'))
+
+# tie into api commands on client
+commands = 
+  'woot': 'woot'
+  'hey': 'hey'
+  'play': 'play'
+  
 
 server = http.createServer (req, resp) ->
   log 'Got a request', req
@@ -15,6 +23,10 @@ server = http.createServer (req, resp) ->
     resp.statusCode = 200
     resp.setHeader 'content-type', 'text/html'
     resp.end index
+  else if req.url is '/grooveshark-api.js'
+    resp.statusCode = 200
+    resp.setHeader 'content-type', 'text/javascript'
+    resp.end api 
   else if req.url is '/push'
     push 'Got a request on ' + req.url
     resp.statusCode = 200
@@ -34,12 +46,10 @@ process.stdin.resume()
 process.stdin.on 'data', (chunk) ->
   push chunk.toString()
 
+# handles sending data to client
 push = (data) ->
+  log "this is data", data
+  data = data.trim()
   sockets.forEach (socket) ->
-    socket.emit 'data', data
+    socket.emit commands[data], data 
 
-
-
-
-
-    

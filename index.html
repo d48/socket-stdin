@@ -1,5 +1,5 @@
+<script type="text/javascript" charset="utf-8" src="http://localhost:1978/grooveshark-api.js"></script>
 <script type="text/javascript" charset="utf-8" src="/socket.io/socket.io.js">
-    
 </script>
 <div id="message"></div>
 <script type="text/javascript" charset="utf-8">
@@ -8,5 +8,21 @@
     socket.on('data', function(data) {
         console.log(data);
         document.getElementById('message').textContent += data;
+    });
+
+    socket.on('woot', function(data, callback) {
+        console.log(data);
+        alert('wooting');
+    });
+
+    socket.on('play', function(data, callback) {
+        console.log(data);
+        alert('playing');
+        Groove.play();
+    });
+
+    socket.on('hey', function(data, callback) {
+        console.log(data);
+        alert('heying');
     });
 </script>
