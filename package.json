@@ -1,0 +1,22 @@
+{
+  "name": "socket-stdin",
+  "version": "0.0.1",
+  "description": "testing socket.io and stdin",
+  "main": "server.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "socket.io": "0.9.10",
+    "socket.io-client": "0.9.10"
+  },
+  "repository": "",
+  "keywords": [
+    "socket.io",
+    "stdin"
+  ],
+  "author": "Ryan Regalado",
+  "license": "MIT"
+
+}
