@@ -26,6 +26,6 @@ Then from server on command line, can type in commands for events to emit:
 
 ## Todo
 
-1. Will tie in customer command to emit event that will run method on `Groove.object` that is loaded on the client
+1. Will tie in custom command to emit event that will run method on `Groove.object` that is loaded on the client. This will control flash player
 
 
